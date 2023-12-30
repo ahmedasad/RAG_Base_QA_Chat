@@ -10,6 +10,6 @@ class AugmentedGeneration():
         formatted_context =  '\n'.join([doc.page_content for doc in documents])
         return formatted_context
 
-    def generate_optamised_response(self, query, response, llm):
-        prompt = f"I have a query: '{query}' and have certain knowledge on it: {response}."
-        self.llm.generate(prompts=[prompt]).generations[0][0].text
+    def generate_optamised_response(self, prompt):
+        # prompt = f"I have a query: '{query}' and have certain knowledge on it: {response}."
+        return self.llm.generate(prompts=[prompt]).generations[0][0].text

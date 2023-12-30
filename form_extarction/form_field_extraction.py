@@ -14,9 +14,9 @@ from selenium.webdriver.remote.webelement import WebElement
 # "https://www.facebook.com/login/"
 
 
-def web_page_attributes() -> list[WebElement]:
+def web_page_attributes(url) -> list[WebElement]:
     
-    url = "https://www.saucedemo.com/v1/index.html"
+    # url = "https://www.saucedemo.com/v1/index.html"
     opts = Options()
     opts.add_argument("--headless=new")
     driver = webdriver.Chrome(opts)
@@ -25,16 +25,16 @@ def web_page_attributes() -> list[WebElement]:
     print(driver.title)
     
     web_elements = [element for element in driver.find_elements(by=By.TAG_NAME, value="input") if element.get_attribute(
-        'type') == 'password' or element.get_attribute('type') == 'text' or element.get_attribute('type') == "submit"]
+        'type') == 'password' or element.get_attribute('type') == 'text']
 
-    web_elements.extend([element for element in driver.find_elements(
-        by=By.TAG_NAME, value="button") if element.get_attribute('type') == "submit"])
+    # web_elements.extend([element for element in driver.find_elements(
+    #     by=By.TAG_NAME, value="button") if element.get_attribute('type') == "submit"])
 
+    elements = []
     for item in web_elements:
-        print(item.get_attribute('type'), item.tag_name)
+        elements.append(item.get_attribute('id'))
 
     driver.quit()
     
-    return web_elements
+    return elements
     
-web_page_attributes()

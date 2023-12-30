@@ -18,8 +18,8 @@ class RAGDatabase():
         Qdrant.from_documents(documents, self.embedding_model,
                               collection_name=config.DATABASE_NAME, url=config.DB_CONNECTION_URL)
 
-    def search_in_table(self):
-        query = "what should expect Actual Result and Post-Conditions?"
+    def search_in_table(self,query):
+        
         db = Qdrant(client=self.client, embeddings=self.embedding_model,
                     collection_name=config.DATABASE_NAME)
         return db.similarity_search_by_vector(embedding=self.embedding_model.embed_query(query))
