@@ -4,7 +4,7 @@ from form_extarction.form_field_extraction import web_page_attributes
 from indexing.document_loader import FileLoader
 from indexing.document_transformer import DocuemntSplitter
 from indexing.database import RAGDatabase
-
+from openai import OpenAI
 # - Augmented Generation
 
 
@@ -27,7 +27,7 @@ class Main():
             elements = web_page_attributes(url)
             if len(elements) > 0:
                 return ', '.join(elements)
-
+            
         return 0
 
     def process_user_query(self, query):
@@ -43,8 +43,9 @@ class Main():
 
         if isit:
             # get similar info from vector/Qdrant DB
-            data_from_db = self.dataBase.search_in_table(query)
-            print(f"DB response: \n\n\n{data_from_db}\n\n\n")
+            data_from_db = self.dataBase.search_in_table(query)[0].page_content
+            print("QUERY::::", data_from_db)
+            
             
             if get_url_elements != 0:
                 # Create a prompt when no URL is give in user query/prompt  
@@ -60,25 +61,27 @@ class Main():
         return response
 
 
-def main():
+# def main():
 
-    file_loader = FileLoader('./data')
-    docs = file_loader.load_pdf_files()
-    splitter = DocuemntSplitter(docs)
-    chunks = splitter.create_chunks()
+    # client = OpenAI(api_key= config.OPENAI_API_KEY)
+    # file_loader = FileLoader('./data')
+    # docs = file_loader.load_pdf_files()
+    # splitter = DocuemntSplitter(docs)
+    # chunks = splitter.create_chunks()
 
-#     print("Document Chunks: \n",chunks)
-#     print("creating table and inserting into table:\n")
-    db = RAGDatabase()
+    # print("Document Chunks: \n",chunks)
+    # print("creating table and inserting into table:\n")
+    # db = RAGDatabase()
 
-    db.load_documents_into_database(chunks)
-#     # data = db.search_in_table()
-#     # for item in data:
-#     #     print(item.page_content)
-#     # ag = AugmentedGeneration()
-#     # ag.format_context(data)
+    # db.load_documents_into_database(chunks)
+    # data = db.search_in_table()
+    # for item in data:
+    #     print(item.page_content)
+    # ag = AugmentedGeneration()
+    # ag.format_context(data)
 
 #     # print(improved_response)
 
 
-main()
+
+# main()

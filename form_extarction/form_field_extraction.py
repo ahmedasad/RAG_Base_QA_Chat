@@ -10,13 +10,8 @@ from selenium.webdriver.remote.webelement import WebElement
     - collect those fields in array or comma separated string
 '''
 
-# 'https://www.linkedin.com/login?fromSignIn=true&trk=guest_homepage-basic_nav-header-signin'
-# "https://www.facebook.com/login/"
-
-
-def web_page_attributes(url) -> list[WebElement]:
+def web_page_attributes(url):
     
-    # url = "https://www.saucedemo.com/v1/index.html"
     opts = Options()
     opts.add_argument("--headless=new")
     driver = webdriver.Chrome(opts)

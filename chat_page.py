@@ -35,9 +35,9 @@ if prompt := st.chat_input("Message QA Chatbot..."):
                  for msg in st.session_state.messages if msg["role"] == "user"][-1].lower()
 
         # Process Query here and get response
-        assistant_response = generate_text.process_user_query(query=query)
-
-        # Simulate stream of response with milliseconds delay
+        assistant_response = generate_text.process_user_query(query=query)        
+        
+        # # Simulate stream of response with milliseconds delay
         if "\n" in assistant_response:
             for chunk in assistant_response.split("\n"):
                 for item in chunk.split():
