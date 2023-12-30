@@ -47,7 +47,7 @@ class Main():
 
         if isit:
             # get similar info from vector/Qdrant DB
-            data_from_db = self.dataBase.search_in_table(query)[0].page_content
+            data_from_db = self.dataBase.search_in_db(query)[0].page_content
             print("QUERY::::", data_from_db)
             
             

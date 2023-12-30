@@ -1,4 +1,3 @@
-from typing import Text
 from langchain.document_loaders import TextLoader
 from langchain.document_loaders import DirectoryLoader
 from langchain.document_loaders import PyPDFLoader

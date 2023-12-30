@@ -20,7 +20,7 @@ class RAGDatabase():
         Qdrant.from_documents(documents, self.embedding_model,
                               collection_name=config.DATABASE_NAME, url=config.DB_CONNECTION_URL)
 
-    def search_in_table(self,query):
+    def search_in_db(self,query):
         
         db = Qdrant(client=self.client, embeddings=self.embedding_model,
                     collection_name=config.DATABASE_NAME)
