@@ -22,9 +22,6 @@ def web_page_attributes(url):
     web_elements = [element for element in driver.find_elements(by=By.TAG_NAME, value="input") if element.get_attribute(
         'type') == 'password' or element.get_attribute('type') == 'text']
 
-    # web_elements.extend([element for element in driver.find_elements(
-    #     by=By.TAG_NAME, value="button") if element.get_attribute('type') == "submit"])
-
     elements = []
     for item in web_elements:
         elements.append(item.get_attribute('id'))

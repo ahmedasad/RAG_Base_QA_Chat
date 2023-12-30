@@ -7,7 +7,11 @@ from indexing.database import RAGDatabase
 from openai import OpenAI
 # - Augmented Generation
 
-
+'''
+    - Class written to perform different operations on given query/prompts
+    - we are using some synonym key words to filter the URL and some test cases words, so we can search on DB
+    - for contextual relevant info
+'''
 class Main():
     li = ["qa","test","automation", "test case", "login"]
         
@@ -61,27 +65,24 @@ class Main():
         return response
 
 
-# def main():
 
-    # client = OpenAI(api_key= config.OPENAI_API_KEY)
-    # file_loader = FileLoader('./data')
-    # docs = file_loader.load_pdf_files()
-    # splitter = DocuemntSplitter(docs)
-    # chunks = splitter.create_chunks()
+'''
+    - Written This function, runs independently, use to load data and making chunks and creating embeddings
+'''
 
-    # print("Document Chunks: \n",chunks)
-    # print("creating table and inserting into table:\n")
-    # db = RAGDatabase()
+def main():
 
-    # db.load_documents_into_database(chunks)
-    # data = db.search_in_table()
-    # for item in data:
-    #     print(item.page_content)
-    # ag = AugmentedGeneration()
-    # ag.format_context(data)
+    # Loading File
+    file_loader = FileLoader('./data')
+    docs = file_loader.load_pdf_files()
+    
+    # Making Chunks
+    splitter = DocuemntSplitter(docs)
+    chunks = splitter.create_chunks()
 
-#     # print(improved_response)
+    # Loading embedded chunks into the DB
+    db = RAGDatabase()
+    db.load_documents_into_database(chunks)
+    
 
-
-
-# main()
+main()

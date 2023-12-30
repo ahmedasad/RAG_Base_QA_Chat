@@ -1,5 +1,8 @@
 from langchain.text_splitter import CharacterTextSplitter
 
+'''
+    - Class written to split any give document in chunk size of 1200 characters
+'''
 class DocuemntSplitter():
     def __init__(self, docuemnt):
         self.docuemnt = docuemnt
