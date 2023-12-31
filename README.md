@@ -28,8 +28,8 @@ https://github.com/ahmedasad/RAG_Base_QA_Chat/assets/20832655/64139378-f103-4f36
 
 ### Phases / Steps of implementation:
 Two major phases are:
-    - Indexing: a pipeline for ingesting data from a source and indexing it. This usually happen offline.
-    - Retrieval and generation: the actual RAG chain, which takes the user query at run time and retrieves the relevant data from the index, then passes that to the model.
+  - **Indexing**: a pipeline for ingesting data from a source and indexing it. This usually happen offline.
+  - **Retrieval and generation**: the actual RAG chain, which takes the user query at run time and retrieves the relevant data from the index, then passes that to the model.
     
 **And it further divides into:**
   - **Document splitting**: First, will splitt docuemnt into small chunks.
