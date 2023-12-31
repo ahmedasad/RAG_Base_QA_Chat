@@ -15,14 +15,6 @@ https://github.com/ahmedasad/RAG_Base_QA_Chat/assets/20832655/64139378-f103-4f36
           - **Retrieval**: Searchs/Extracts information from documents / datasets related to a given query/prompt.
           - **Generation**: Takes the retrieved info and uses it to generate a coherent (logical and well-organized) and contextually relevant response.
 
-### Phases / Steps of implementation:
-  - **Document splitting**: First, will splitt docuemnt into small chunks.
-  - **Embedding**: Then, will create embeddings of chunks and store in Vector DB.
-  - **Info Retrieval**:
-      - **Retrieve Data**: The retrieval system searches through it datasets/ documents to find info related to the query.
-      - **Integration**: The retrieved info is then fed into the **generative model** along with the original query .
-      - ** Generation**: Generative Model uses both the **query/prompt** and **retrieved info**  to produce a detailed, informed response.
-
 ### Libraries and Tools used:
   - Python 3.12
   - openAI: we used the "gpt-3.5-turbo-1106"
@@ -33,6 +25,19 @@ https://github.com/ahmedasad/RAG_Base_QA_Chat/assets/20832655/64139378-f103-4f36
   - Selenium: Used to extract input fields related info from given Web page
   - streamlit for Chat UI
   - dotenv
+
+### Phases / Steps of implementation:
+Two major phases are:
+    - Indexing: a pipeline for ingesting data from a source and indexing it. This usually happen offline.
+    - Retrieval and generation: the actual RAG chain, which takes the user query at run time and retrieves the relevant data from the index, then passes that to the model.
+    
+**And it further divides into:**
+  - **Document splitting**: First, will splitt docuemnt into small chunks.
+  - **Embedding**: Then, will create embeddings of chunks and store in Vector DB.
+  - **Info Retrieval**:
+      - **Retrieve Data**: The retrieval system searches through it datasets/ documents to find info related to the query.
+      - **Integration**: The retrieved info is then fed into the **generative model** along with the original query .
+      - **Generation**: Generative Model uses both the **query/prompt** and **retrieved info**  to produce a detailed, informed response.
 
 ### Step 1:
   - Written divided file laoding, chunking operation, embedding and storing into different classes and will call them in main function in index.py.
