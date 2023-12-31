@@ -6,6 +6,9 @@
 - **Skills Required**: Need to have knowledge of Python (as we are writing solution in Python), OpenAI models and LangChain libraries.
 - **Innovative Techniques**: Will integrate retrieval mechanisms with generative models for enhanced AI capabilities.
 
+## Demo Video:
+https://github.com/ahmedasad/RAG_Base_QA_Chat/assets/20832655/64139378-f103-4f36-930e-d9739ee8fda3
+
 ### Pre-requisites:
   - **Retrieval-Augmented Generation (RAG)**: RAG is a technique for augmenting LLM knowledge with additional, often private or real-time, data.
       - **Components of RAG**:
